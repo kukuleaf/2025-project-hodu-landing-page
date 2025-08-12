@@ -33,11 +33,11 @@
                         <button class="header-download-btn">Download</button>
                     </li>
                 </ul>
-                <button class="header-menu-btn" onclick="openMenuBtn()">
+                <button class="header-menu-btn" onclick="openMenu()">
                     <img src="./images/menu.svg" alt="메뉴">
                 </button>
                 <div class="header-menu-right" id="menuRight">
-                    <button class="header-back-btn" onclick="closeMenuBtn()">
+                    <button class="header-back-btn" onclick="closeMenu()">
                         <img src="./images/arrow-right.svg" alt="원래대로">
                     </button>
                     <ul class="header-nav-list">
@@ -98,10 +98,12 @@
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been industry's standard dummy text ever since the 1500s, when an unknown
                 </p>
-                <div class="gallery-images">
-                    <img src="./images/img_1.jpg" alt="캣타워 위에 있는 고양이">
-                    <img src="./images/img_2.jpg" alt="콘센트와 고양이">
-                    <img src="./images/img_3.jpg" alt="이쪽을 바라보는 고양이">
+                <div class="gallery-slider">
+                    <div class="gallery-images">
+                        <img src="./images/img_1.jpg" alt="캣타워 위에 있는 고양이" class="gallery-image active">
+                        <img src="./images/img_2.jpg" alt="콘센트와 고양이" class="gallery-image">
+                        <img src="./images/img_3.jpg" alt="이쪽을 바라보는 고양이" class="gallery-image">
+                    </div>
                 </div>
                 <div class="gallery-text">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -198,10 +200,10 @@
         const windowHeight = window.innerHeight;
         
         if (footerRect.top < windowHeight) {
-            const overlap = windowHeight - footerRect.top; // footer가 화면에 들어온 길이
-            scrollTopBtn.style.bottom = (overlap + 20) + "px"; // 여유 20px
+            const overlap = windowHeight - footerRect.top;
+            scrollTopBtn.style.bottom = (overlap + 20) + "px";
         } else {
-            scrollTopBtn.style.bottom = "40px"; // 기본 위치
+            scrollTopBtn.style.bottom = "40px";
         }
     }
 
@@ -229,9 +231,23 @@
         document.body.style.overflow = "";
     }
 
-    function menuBtnOpen(){
-        menuRight.style.display = "block";
+    function openMenu(){
+        menuRight.classList.add("active");
+        scrollTopBtn.style.display = "none";
     }
+
+    function closeMenu(){
+        menuRight.classList.remove("active");
+        scrollTopBtn.style.display = "";
+    }
+
+    document.addEventListener("click", function(e) {
+        if (menuRight.classList.contains("active") && 
+            !menuRight.contains(e.target) && 
+            !e.target.closest('.header-menu-btn')) {
+            closeMenu();
+        }
+    });
 
     function handleSubscribeSubmit(e) {
         e.preventDefault();
@@ -268,9 +284,67 @@
             if (e.key === "Escape" && subscribeModal.classList.contains("active")) {
                 closeModal();
             }
+            if (e.key === "Escape" && menuRight.classList.contains("active")) {
+                closeMenu();
+            }
         });
     });
 
-    // 스크롤 탑 버튼 클릭 이벤트
     scrollTopBtn.addEventListener("click", scrollToTop);
+
+    let currentSlide = 0;
+    let startX = 0;
+    let endX = 0;
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const totalSlides = galleryImages.length;
+    const gallerySlider = document.querySelector('.gallery-slider');
+
+    gallerySlider.addEventListener('touchstart', handleTouchStart, false);
+    gallerySlider.addEventListener('touchend', handleTouchEnd, false);
+    
+    updateGallery();
+    
+    console.log('Touch events registered for gallery slider');
+    console.log('Total slides:', totalSlides);
+    console.log('Initial slide:', currentSlide);
+
+    function handleTouchStart(e) {
+        startX = e.touches[0].clientX;
+    }
+
+    function handleTouchEnd(e) {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        console.log('Swipe detected:', { startX, endX, diff, currentSlide });
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                console.log('Next slide:', currentSlide);
+            } else {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                console.log('Previous slide:', currentSlide);
+            }
+            updateGallery();
+        }
+    }
+
+    function updateGallery() {
+        console.log('Updating gallery, current slide:', currentSlide);
+        galleryImages.forEach((image, index) => {
+            if (index === currentSlide) {
+                image.classList.add('active');
+                console.log('Image', index, 'set to active');
+            } else {
+                image.classList.remove('active');
+                console.log('Image', index, 'set to inactive');
+            }
+        });
+    }
 </script>
