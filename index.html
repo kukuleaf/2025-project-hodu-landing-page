@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HODU - 고양이와 함께하는 특별한 경험">
+    <meta name="keywords" content="HODU, 고양이, 애완동물, 반려묘">
+    <meta name="author" content="HODU Team">
+    <title>HODU - 고양이와 함께하는 특별한 경험</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1 class="header-logo">
+                <a href="#">
+                    <img src="./images/logo.svg" alt="HODU 로고">
+                </a>
+            </h1>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li class="header-nav-item">
+                        <a href="#" class="header-nav-link">Home</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="#" class="header-nav-link">About</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="#" class="header-nav-link">Support</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <button class="header-download-btn">Download</button>
+                    </li>
+                </ul>
+                <button class="header-menu-btn" onclick="openMenuBtn()">
+                    <img src="./images/menu.svg" alt="메뉴">
+                </button>
+                <div class="header-menu-right" id="menuRight">
+                    <button class="header-back-btn" onclick="closeMenuBtn()">
+                        <img src="./images/arrow-right.svg" alt="원래대로">
+                    </button>
+                    <ul class="header-nav-list">
+                        <li class="header-nav-item">
+                            <a href="#" class="header-nav-link">Home</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="#" class="header-nav-link">About</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="#" class="header-nav-link">Support</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <button class="header-download-btn">Download</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="cat">
+            <div class="cat-container">
+                <div class="cat-content">
+                    <h2 class="cat-title">
+                        <span>Lorem Ipsum is simply</span>
+                        <span>dummy text of the printing and</span>
+                    </h2>
+                    <p class="cat-description">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    </p>
+                    <button class="cat-download-btn">Download</button>
+                </div>
+                <div class="cat-image">
+                    <img src="./images/box-cat.png" alt="박스를 뒤집어 쓴 고양이">
+                </div>
+            </div>
+        </section>
+
+        <section class="feature">
+            <div class="feature-container">
+                <div class="feature-image">
+                    <img src="./images/img_4.jpg" alt="누워있는 고양이">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Lorem Ipsum is simply dummy text of the printing and dummy text</h3>
+                    <p class="feature-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="gallery-container">
+                <h3 class="gallery-title">dummy text of the printing and dummy</h3>
+                <p class="gallery-description">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been industry's standard dummy text ever since the 1500s, when an unknown
+                </p>
+                <div class="gallery-images">
+                    <img src="./images/img_1.jpg" alt="캣타워 위에 있는 고양이">
+                    <img src="./images/img_2.jpg" alt="콘센트와 고양이">
+                    <img src="./images/img_3.jpg" alt="이쪽을 바라보는 고양이">
+                </div>
+                <div class="gallery-text">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
+                    <p>Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <button class="gallery-learn-more-btn">Learn More</button>
+            </div>
+        </section>
+
+        <section class="subscribe">
+            <div class="subscribe-background"></div>
+            <div class="subscribe-container">
+                <div class="subscribe-content">
+                    <h2 class="subscribe-title">Subscribe to our Blog post</h2>
+                    <p class="subscribe-description">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text
+                    </p>
+                </div>
+                <form class="subscribe-form" id="subscribeForm">
+                    <div class="subscribe-input-group">
+                        <img src="./images/mail.svg" alt="이메일 아이콘" class="subscribe-mail-icon">
+                        <input type="email" class="subscribe-input" id="email" placeholder="Enter your e-mail address" required>
+                    </div>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
+        </section> 
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="./images/logo.png" alt="HODU 로고" class="footer-logo">
+                <div class="footer-sns">                
+                    <div class="footer-social">
+                        <a href="#">
+                            <img src="./images/blog.svg" alt="블로그 아이콘">
+                        </a>
+                        <a href="#">
+                            <img src="./images/instagram.svg" alt="인스타그램 아이콘">
+                        </a>
+                        <a href="#">
+                            <img src="./images/facebook.svg" alt="페이스북 아이콘">
+                        </a>
+                        <a href="#">
+                            <img src="./images/youtube.svg" alt="유튜브 아이콘">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <a href="#" class="footer-nav-link">About</a>
+                <a href="#" class="footer-nav-link">Blog</a>
+                <a href="#" class="footer-nav-link">Support</a>
+                <a href="#" class="footer-nav-link">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <img src="./images/top-btn.svg" alt="위로 이동">
+    </button>
+
+    <!-- 구독 모달 -->
+    <div class="modal" id="subscribeModal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content" role="dialog">
+            <div class="modal-background">
+                <img src="./images/modal-bg-img.png" alt="모달 배경" class="modal-bg-image">
+            </div>
+            <div class="modal-header">
+                <img src="./images/cat-subscribe.png" alt="고양이 구독 이미지" class="modal-cat-image">
+                <h3 id="modalTitle" class="modal-title">Thank you!</h3>
+                <p class="modal-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <button class="modal-close-btn" id="modalCloseBtn" onclick="closeModal()">OK! I love HODU</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const menuRight = document.getElementById("menuRight");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    const subscribeForm = document.getElementById("subscribeForm");
+    const email = document.getElementById("email");
+    const subscribeModal = document.getElementById("subscribeModal");
+    const footer = document.getElementById("footer");    
+
+    function handleScrollTop() {        
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        if (footerRect.top < windowHeight) {
+            const overlap = windowHeight - footerRect.top; // footer가 화면에 들어온 길이
+            scrollTopBtn.style.bottom = (overlap + 20) + "px"; // 여유 20px
+        } else {
+            scrollTopBtn.style.bottom = "40px"; // 기본 위치
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    function validateEmail(str) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(str);
+    }
+
+    function openModal() {
+        subscribeModal.classList.add("active");
+        subscribeModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        subscribeModal.classList.remove("active");
+        subscribeModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    function menuBtnOpen(){
+        menuRight.style.display = "block";
+    }
+
+    function handleSubscribeSubmit(e) {
+        e.preventDefault();
+        
+        if (!email.value) {
+            alert("이메일 주소를 입력해주세요.");
+            emailInput.focus();
+            return;
+        }
+        
+        if (!validateEmail(email.value)) {
+            alert("올바른 이메일 형식을 입력해주세요.");
+            emailInput.focus();
+            return;
+        }
+        
+        openModal();
+        
+        subscribeForm.reset();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener("scroll", handleScrollTop);
+        
+        subscribeForm.addEventListener("submit", handleSubscribeSubmit);
+
+        subscribeModal.addEventListener("click", function(e) {
+            if (e.target === subscribeModal) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape" && subscribeModal.classList.contains("active")) {
+                closeModal();
+            }
+        });
+    });
+
+    // 스크롤 탑 버튼 클릭 이벤트
+    scrollTopBtn.addEventListener("click", scrollToTop);
+</script>
