@@ -303,10 +303,6 @@
     gallerySlider.addEventListener('touchend', handleTouchEnd, false);
     
     updateGallery();
-    
-    console.log('Touch events registered for gallery slider');
-    console.log('Total slides:', totalSlides);
-    console.log('Initial slide:', currentSlide);
 
     function handleTouchStart(e) {
         startX = e.touches[0].clientX;
@@ -320,30 +316,23 @@
     function handleSwipe() {
         const swipeThreshold = 50;
         const diff = startX - endX;
-        
-        console.log('Swipe detected:', { startX, endX, diff, currentSlide });
 
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) {
                 currentSlide = (currentSlide + 1) % totalSlides;
-                console.log('Next slide:', currentSlide);
             } else {
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                console.log('Previous slide:', currentSlide);
             }
             updateGallery();
         }
     }
 
     function updateGallery() {
-        console.log('Updating gallery, current slide:', currentSlide);
         galleryImages.forEach((image, index) => {
             if (index === currentSlide) {
                 image.classList.add('active');
-                console.log('Image', index, 'set to active');
             } else {
                 image.classList.remove('active');
-                console.log('Image', index, 'set to inactive');
             }
         });
     }
